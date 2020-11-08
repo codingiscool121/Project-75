@@ -31,7 +31,7 @@ authUser=async(emailId,password)=>{
                 case 'auth/invalid-email':
                     alert("Your email  is invalid.");
                     break;
-                case 'auth/invalid-password':
+                case 'auth/wrong-password':
                     alert("Your password is invalid.")
                     break;
             }
