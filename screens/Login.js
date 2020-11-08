@@ -26,7 +26,7 @@ authUser=async(emailId,password)=>{
         } catch (error) {
             switch(error.code){
                 case 'auth/user-not-found':
-                    alert("It appears that you don't have an account with Storyhub. Please create an account, and then come back to this page! 🧾");
+                    alert("It appears that you don't have an account with Storyhub, "+ emailId +". Please create an account, and then come back to this page! 🧾");
                 break;
                 case 'auth/invalid-email':
                     alert("Your email  is invalid.");
