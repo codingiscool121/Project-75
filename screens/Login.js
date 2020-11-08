@@ -32,7 +32,7 @@ authUser=async(emailId,password)=>{
                     alert("Your email  is invalid.");
                     break;
                 case 'auth/wrong-password':
-                    alert("Your password is invalid.")
+                    alert("Your password is invalid, "+ emailId + "! Please enter the correct password to continue.")
                     break;
             }
         }
