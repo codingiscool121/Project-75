@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, KeyboardAvoidingView, Keyboard, TextInput } from 'react-native';
 import firebase from 'firebase';
@@ -21,7 +20,7 @@ authUser=async(emailId,password)=>{
             const response = await firebase.auth().signInWithEmailAndPassword(emailId,password)
             if(response){
              this.props.navigation.navigate('Write');
-             alert("Welcome, " + emailId + ". We are redirecting you to StoryHub.");
+             alert("Welcome, " + emailId + ". You are being redirected to the StoryHub dashboard.");
             }
         } catch (error) {
             switch(error.code){
@@ -29,7 +28,7 @@ authUser=async(emailId,password)=>{
                     alert("It appears that you don't have an account with Storyhub, "+ emailId +". Please create an account, and then come back to this page! 🧾");
                 break;
                 case 'auth/invalid-email':
-                    alert("Your email  is invalid.");
+                    alert("Your email is invalid. You should format it to be something like example@domain.com.");
                     break;
                 case 'auth/wrong-password':
                     alert("Your password is invalid, "+ emailId + "! Please enter the correct password to continue.")
@@ -44,7 +43,7 @@ authUser=async(emailId,password)=>{
 
 render(){
     return(
-        <View> 
+        <View>
         <Text style={styles.title}> Login To StoryHub</Text>
         <TextInput style={styles.loginBox} placeholder="Email(example@domain.com) " keyboardType='email-address'
         onChangeText={text=>{
@@ -88,6 +87,7 @@ const styles= StyleSheet.create({
         paddingLeft:10,
         alignSelf:"center",
         justifyContent: 'center',
+        borderColor:"turquoise"
     },
     text:{
         fontSize:30,
@@ -100,12 +100,13 @@ const styles= StyleSheet.create({
         paddingTop:13,
         borderWidth:3,
         borderRadius:1,
-        
+        justifyContent:"center"
     },
 
     title:{
         fontSize: 40,
-        textAlign:"center",
-        alignSelf: "center",
+        textAlign:'center',
+        alignSelf: 'center',
+        backgroundColor:"grey"
     }
 })
